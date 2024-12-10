@@ -7,21 +7,21 @@ class Solution {
 public:
     int equalPairs(vector<vector<int>>& grid) {
         int n = grid.size();  // Size of the matrix
-        map<vector<int>, int> rowMap;  // Map to count the frequency of each row
+        map<vector<int>, int> rowMap;  // Maped to count the frequency of each row
         int count = 0;  // To store the number of equal row and column pairs
 
-        // Step 1: Count the occurrences of each row in the grid
+        // Step 1: Counting the occurrences of each row in the grid
         for (int i = 0; i < n; i++) {
             rowMap[grid[i]]++;
         }
 
-        // Step 2: Compare each column with the rows
+        // Step 2: Comparing each column with the rows
         for (int j = 0; j < n; j++) {
             vector<int> col;  // To store the current column
             for (int i = 0; i < n; i++) {
                 col.push_back(grid[i][j]);
             }
-            // Add the count of this column from the rowMap
+            // Added the count of this column from the rowMap
             count += rowMap[col];
         }
 
